@@ -1,16 +1,25 @@
 # AI 角色定义
 
-本文件夹包含 Paper Master 系统的核心 AI 角色定义文档。
+本文件夹包含 Paper Master 系统的 AI 角色定义文档（5 核心 + 2 选用）。
 
 ## 角色概览
 
-| 角色 | 文件 | 职责 | 输入 | 输出 |
-|------|------|------|------|------|
-| **格式分析师** | [Format_Analyst.md](./Format_Analyst.md) | 分析论文格式要求 | 格式要求文档 | 《格式规范》 |
-| **资料查询者** | [Research_Collector.md](./Research_Collector.md) | 网络查询相关资料 | 论文主题 | 《资料汇编》《参考文献》 |
-| **大纲创作师** | [Outline_Architect.md](./Outline_Architect.md) | 创建论文大纲 | 格式规范、资料 | 《论文大纲》 |
-| **内容填充者** | [Content_Writer.md](./Content_Writer.md) | 分部分撰写内容 | 大纲、资料 | 各章节 MD 文件 |
-| **HTML 格式化专家** | [HTML_Formatter.md](./HTML_Formatter.md) | 生成 Word 兼容 HTML | 所有内容 | HTML 文件 |
+### 核心角色
+
+| 角色 | 文件 | 职责 | 输出 |
+|------|------|------|------|
+| **格式分析师** | [Format_Analyst.md](./Format_Analyst.md) | 分析论文格式要求 | 《格式规范》 |
+| **资料查询者** | [Research_Collector.md](./Research_Collector.md) | 网络查询相关资料 | 《资料汇编》《参考文献》 |
+| **大纲创作师** | [Outline_Architect.md](./Outline_Architect.md) | 创建论文大纲 | 《论文大纲》 |
+| **内容填充者** | [Content_Writer.md](./Content_Writer.md) | 分部分撰写内容 | 各章节 MD 文件 |
+| **HTML 格式化专家** | [HTML_Formatter.md](./HTML_Formatter.md) | 生成 Word 兼容 HTML | HTML 文件 |
+
+### 选用角色（按需调用）
+
+| 角色 | 文件 | 职责 | 触发条件 |
+|------|------|------|----------|
+| **代码撰写者** | [Code_Implementer.md](./Code_Implementer.md) | 编写 Python 代码 | 论文含算法/实验需求 |
+| **图片生成师** | [Figure_Designer.md](./Figure_Designer.md) | 生成顶会风格配图 | 用户要求配图 |
 
 ## 工作流程
 
@@ -18,14 +27,14 @@
 用户输入论文要求
     ↓
 [Format_Analyst] 格式分析师
-    ↓ 输出《格式规范》
+    ↓ 输出《格式规范》（含代码/配图需求确认）
 [Research_Collector] 资料查询者
     ↓ 输出《资料汇编》《参考文献》
 [Outline_Architect] 大纲创作师
     ↓ 输出《论文大纲》（用户确认）
-[Content_Writer] 内容填充者
-    ↓ 逐部分撰写，输出各章节 MD
-    ↓ （可迭代修改）
+    │
+[Content_Writer] 内容填充者 ←→ [Code_Implementer] (按需)
+    ↓                        ←→ [Figure_Designer] (按需)
 [HTML_Formatter] HTML 格式化专家
     ↓ 输出 HTML 文件
 浏览器打开 → 复制 → 粘贴到 Word
@@ -102,16 +111,46 @@
 
 ---
 
+### 6️⃣ Code_Implementer（代码撰写者）⭐ 选用
+
+**何时使用**：论文含算法实现、实验代码需求时
+
+**核心能力**：
+- 编写可运行的 Python 代码
+- 清晰注释，便于论文引用
+- 生成代码说明文档
+
+📄 [查看完整定义](./Code_Implementer.md)
+
+---
+
+### 7️⃣ Figure_Designer（图片生成师）⭐ 选用
+
+**何时使用**：用户要求配图时
+
+**核心能力**：
+- 设计图片需求，生成框架图描述
+- 组装顶会风格 Prompt（莫兰迪色系）
+- 调用 nanobanana 生成配图
+
+**Prompt 公式**：`框架图描述 + 顶会风格 + 设计风格`
+
+📄 [查看完整定义](./Figure_Designer.md)
+
+---
+
 ## 使用建议
 
 ### 基本流程
 
 1. 准备格式要求文档（放入 `templates/user/`）
-2. 从 **Format_Analyst** 开始，完成格式确认
+2. 从 **Format_Analyst** 开始，完成格式确认（含代码/配图需求）
 3. **Research_Collector** 查询资料
 4. **Outline_Architect** 创建大纲并确认
-5. **Content_Writer** 逐部分撰写
-6. **HTML_Formatter** 生成最终 HTML
+5. **Code_Implementer** 编写代码（如需要）
+6. **Content_Writer** 逐部分撰写
+7. **Figure_Designer** 生成配图（如需要）
+8. **HTML_Formatter** 生成最终 HTML
 
 ### 最佳实践
 

@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-一个基于 AI 的智能论文创作系统，通过 **5+2 多角色协作**（5 核心 + 2 选用），将论文要求转化为高质量的学术论文，**输出 Word 兼容的 HTML 格式**。
+一个基于 AI 的智能论文创作系统，通过多角色协作，将论文要求转化为高质量的学术论文，**输出 Word 兼容的 HTML 格式**。
 
 ---
 
@@ -15,7 +15,7 @@
    使用 Mineru 将论文要求文档转换为 MD 格式，放入 templates/user/ 目录
 
 2️⃣ 打开 AI 编辑器
-   使用 Kiro/Cursor/Copilot 打开本项目
+   使用 Antigravity/Cursor/Copilot 打开本项目
 
 3️⃣ 开始对话
    告诉 AI："我需要写一篇关于 XX 的结课论文，格式要求在 templates/user/ 中"
@@ -31,8 +31,6 @@ AI（Format_Analyst）：好的，请确认以下信息...
    2. 格式模板：[请指定] templates/user/ 中的模板文件
    3. 字数要求：3000字
    4. 参考文献格式：[默认] GB/T 7714
-   5. 代码实现：是 / 否
-   6. 配图需求：是 / 否
    ...
 ```
 
@@ -44,13 +42,13 @@ AI（Format_Analyst）：好的，请确认以下信息...
 论文要求文档
     ↓ (Mineru 转换)
 [Format_Analyst] 格式分析师
-    ↓ 输出《格式规范》（含代码/配图需求确认）
+    ↓ 输出《格式规范》
 [Research_Collector] 资料查询者
     ↓ 输出《资料汇编》《参考文献》
 [Outline_Architect] 大纲创作师
     ↓ 输出《论文大纲》
-[Content_Writer] 内容填充者 ←→ [Code_Implementer] (按需)
-    ↓ 输出各章节 MD 文件    ←→ [Figure_Designer] (按需)
+[Content_Writer] 内容填充者 (逐部分)
+    ↓ 输出各章节 MD 文件
 [HTML_Formatter] HTML 格式化专家
     ↓ 输出 HTML 文件
 浏览器打开 → 全选复制 → 粘贴到 Word
@@ -58,9 +56,7 @@ AI（Format_Analyst）：好的，请确认以下信息...
 
 ---
 
-## 🎭 角色体系
-
-### 核心角色（必经流程）
+## 🎭 核心角色
 
 | 角色 | 职责 | 输出 |
 |------|------|------|
@@ -69,13 +65,6 @@ AI（Format_Analyst）：好的，请确认以下信息...
 | **Outline_Architect** | 创建论文大纲 | 《论文大纲》 |
 | **Content_Writer** | 分部分撰写内容 | 各章节 MD 文件 |
 | **HTML_Formatter** | 生成 Word 兼容 HTML | HTML 文件 |
-
-### 选用角色（按需调用）
-
-| 角色 | 职责 | 触发条件 | 输出 |
-|------|------|----------|------|
-| **Code_Implementer** | 编写 Python 代码 | 论文含算法/实验需求 | `code/` 目录 |
-| **Figure_Designer** | 生成顶会风格配图 | 用户要求配图 | `figures/` 目录 |
 
 📄 [查看完整角色定义](./roles/README.md)
 
@@ -87,16 +76,13 @@ AI（Format_Analyst）：好的，请确认以下信息...
 paper-master/
 ├── README.md                    # 本文件
 ├── AGENTS.md                    # AI 代理指引
-├── 顶会风格描述prompt.md         # 配图风格 Prompt
 │
 ├── roles/                       # AI 角色定义
-│   ├── Format_Analyst.md        # 格式分析师
-│   ├── Research_Collector.md    # 资料查询者
-│   ├── Outline_Architect.md     # 大纲创作师
-│   ├── Content_Writer.md        # 内容填充者
-│   ├── HTML_Formatter.md        # HTML 格式化专家
-│   ├── Code_Implementer.md      # 代码撰写者（选用）
-│   └── Figure_Designer.md       # 图片生成师（选用）
+│   ├── Format_Analyst.md
+│   ├── Research_Collector.md
+│   ├── Outline_Architect.md
+│   ├── Content_Writer.md
+│   └── HTML_Formatter.md
 │
 ├── templates/                   # 模板库
 │   ├── user/                    # 用户自定义模板（放这里）

@@ -4,9 +4,11 @@
 
 ## 项目概述
 
-Paper Master 是一个 AI 驱动的结课论文创作系统，通过五角色协作将论文要求转化为高质量输出。
+Paper Master 是一个 AI 驱动的结课论文创作系统，通过 **5+2 角色协作**（5 核心 + 2 选用）将论文要求转化为高质量输出。
 
 ## 角色与流程速查
+
+### 核心角色
 
 | 角色 | 文件 | 职责 |
 |------|------|------|
@@ -15,6 +17,13 @@ Paper Master 是一个 AI 驱动的结课论文创作系统，通过五角色协
 | **Outline_Architect** | `roles/Outline_Architect.md` | 创建论文大纲结构 |
 | **Content_Writer** | `roles/Content_Writer.md` | 分部分撰写论文内容 |
 | **HTML_Formatter** | `roles/HTML_Formatter.md` | 生成 Word 兼容 HTML |
+
+### 选用角色（按需调用）
+
+| 角色 | 文件 | 职责 | 触发条件 |
+|------|------|------|----------|
+| **Code_Implementer** | `roles/Code_Implementer.md` | 编写 Python 代码 | 论文含算法/实验需求 |
+| **Figure_Designer** | `roles/Figure_Designer.md` | 生成顶会风格配图 | 用户要求配图 |
 
 ### 工作流程
 
@@ -25,8 +34,8 @@ Research_Collector
     ↓
 Outline_Architect
     ↓
-Content_Writer (逐部分，可迭代)
-    ↓
+Content_Writer ←→ Code_Implementer (按需)
+    ↓          ←→ Figure_Designer (按需)
 HTML_Formatter
 ```
 
@@ -43,7 +52,9 @@ HTML_Formatter
 | 格式分析 | `roles/Format_Analyst.md` | 用户提出新的论文需求 |
 | 资料查询 | `roles/Research_Collector.md` | 格式规范完成后 |
 | 大纲创建 | `roles/Outline_Architect.md` | 资料汇编完成后 |
+| 代码实现 | `roles/Code_Implementer.md` | 格式规范标注需要代码（选用） |
 | 内容撰写 | `roles/Content_Writer.md` | 大纲确认后 |
+| 图片生成 | `roles/Figure_Designer.md` | 格式规范标注需要配图（选用） |
 | HTML 生成 | `roles/HTML_Formatter.md` | 所有部分内容完成后 |
 
 > ⚠️ **禁止跳过**：不得在未阅读角色定义文件的情况下直接执行该角色的任务。
@@ -85,6 +96,8 @@ HTML_Formatter
 3. **字数要求** - 总字数及各部分分配
 4. **参考文献格式** - 默认 GB/T 7714
 5. **特殊要求** - 图表、公式等
+6. **代码实现** - 是否需要（触发 Code_Implementer）
+7. **配图需求** - 是否需要（触发 Figure_Designer）
 
 ### 2. 内容撰写规则
 
@@ -107,7 +120,6 @@ HTML_Formatter
 
 ```
 project/
-├── 格式要求.md           # 输入：用户的格式要求
 ├── 格式规范.md           # Format_Analyst 输出
 ├── 资料汇编.md           # Research_Collector 输出
 ├── 参考文献.md           # Research_Collector 输出
@@ -115,8 +127,13 @@ project/
 ├── content/              # Content_Writer 输出
 │   ├── 00_摘要.md
 │   ├── 01_引言.md
-│   ├── 02_文献综述.md
 │   └── ...
+├── code/                 # Code_Implementer 输出（选用）
+│   ├── main.py
+│   └── README.md
+├── figures/              # Figure_Designer 输出（选用）
+│   ├── fig1_framework.png
+│   └── README.md
 └── output/               # HTML_Formatter 输出
     └── 论文.html
 ```
@@ -143,6 +160,7 @@ python tools/project_manager.py validate <项目路径>
 | HTML 模板 | `templates/html/` |
 | 工作流指南 | `docs/workflow_guide.md` |
 | HTML 转 Word | `docs/html_to_word_guide.md` |
+| 顶会风格 Prompt | `顶会风格描述prompt.md` |
 
 ---
 
